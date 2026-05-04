@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head><meta charset="UTF-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(){this.triggerEvents=["keydown","mousedown","mousemove","touchmove","touchstart","touchend","wheel"],this.userEventHandler=this._triggerListener.bind(this),this.touchStartHandler=this._onTouchStart.bind(this),this.touchMoveHandler=this._onTouchMove.bind(this),this.touchEndHandler=this._onTouchEnd.bind(this),this.clickHandler=this._onClick.bind(this),this.interceptedClicks=[],window.addEventListener("pageshow",(e=>{this.persisted=e.persisted})),window.addEventListener("DOMContentLoaded",(()=>{this._preconnect3rdParties()})),this.delayedScripts={normal:[],async:[],defer:[]},this.allJQueries=[]}_addUserInteractionListener(e){document.hidden?e._triggerListener():(this.triggerEvents.forEach((t=>window.addEventListener(t,e.userEventHandler,{passive:!0}))),window.addEventListener("touchstart",e.touchStartHandler,{passive:!0}),window.addEventListener("mousedown",e.touchStartHandler),document.addEventListener("visibilitychange",e.userEventHandler))}_removeUserInteractionListener(){this.triggerEvents.forEach((e=>window.removeEventListener(e,this.userEventHandler,{passive:!0}))),document.removeEventListener("visibilitychange",this.userEventHandler)}_onTouchStart(e){"HTML"!==e.target.tagName&&(window.addEventListener("touchend",this.touchEndHandler),window.addEventListener("mouseup",this.touchEndHandler),window.addEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.addEventListener("mousemove",this.touchMoveHandler),e.target.addEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"onclick","rocket-onclick"))}_onTouchMove(e){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler),e.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"rocket-onclick","onclick")}_onTouchEnd(e){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler)}_onClick(e){e.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"rocket-onclick","onclick"),this.interceptedClicks.push(e),e.preventDefault(),e.stopPropagation(),e.stopImmediatePropagation()}_replayClicks(){window.removeEventListener("touchstart",this.touchStartHandler,{passive:!0}),window.removeEventListener("mousedown",this.touchStartHandler),this.interceptedClicks.forEach((e=>{e.target.dispatchEvent(new MouseEvent("click",{view:e.view,bubbles:!0,cancelable:!0}))}))}_renameDOMAttribute(e,t,n){e.hasAttribute&&e.hasAttribute(t)&&(event.target.setAttribute(n,event.target.getAttribute(t)),event.target.removeAttribute(t))}_triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}_preconnect3rdParties(){let e=[];document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((t=>{if(t.hasAttribute("src")){const n=new URL(t.src).origin;n!==location.origin&&e.push({src:n,crossOrigin:t.crossOrigin||"module"===t.getAttribute("data-rocket-type")})}})),e=[...new Map(e.map((e=>[JSON.stringify(e),e]))).values()],this._batchInjectResourceHints(e,"preconnect")}async _loadEverythingNow(){this.lastBreath=Date.now(),this._delayEventListeners(),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async);try{await this._triggerDOMContentLoaded(),await this._triggerWindowLoad()}catch(e){}window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this._replayClicks()}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((e=>{e.hasAttribute("src")?e.hasAttribute("async")&&!1!==e.async?this.delayedScripts.async.push(e):e.hasAttribute("defer")&&!1!==e.defer||"module"===e.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(e):this.delayedScripts.normal.push(e):this.delayedScripts.normal.push(e)}))}async _transformScript(e){return await this._littleBreath(),new Promise((t=>{const n=document.createElement("script");[...e.attributes].forEach((e=>{let t=e.nodeName;"type"!==t&&("data-rocket-type"===t&&(t="type"),n.setAttribute(t,e.nodeValue))})),e.hasAttribute("src")?(n.addEventListener("load",t),n.addEventListener("error",t)):(n.text=e.text,t());try{e.parentNode.replaceChild(n,e)}catch(e){t()}}))}async _loadScriptsFromList(e){const t=e.shift();return t?(await this._transformScript(t),this._loadScriptsFromList(e)):Promise.resolve()}_preloadAllScripts(){this._batchInjectResourceHints([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}_batchInjectResourceHints(e,t){var n=document.createDocumentFragment();e.forEach((e=>{if(e.src){const i=document.createElement("link");i.href=e.src,i.rel=t,"preconnect"!==t&&(i.as="script"),e.getAttribute&&"module"===e.getAttribute("data-rocket-type")&&(i.crossOrigin=!0),e.crossOrigin&&(i.crossOrigin=e.crossOrigin),n.appendChild(i)}})),document.head.appendChild(n)}_delayEventListeners(){let e={};function t(t,n){!function(t){function n(n){return e[t].eventsToRewrite.indexOf(n)>=0?"rocket-"+n:n}e[t]||(e[t]={originalFunctions:{add:t.addEventListener,remove:t.removeEventListener},eventsToRewrite:[]},t.addEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.add.apply(t,arguments)},t.removeEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.remove.apply(t,arguments)})}(t),e[t].eventsToRewrite.push(n)}function n(e,t){let n=e[t];Object.defineProperty(e,t,{get:()=>n||function(){},set(i){e["rocket"+t]=n=i}})}t(document,"DOMContentLoaded"),t(window,"DOMContentLoaded"),t(window,"load"),t(window,"pageshow"),t(document,"readystatechange"),n(document,"onreadystatechange"),n(window,"onload"),n(window,"onpageshow")}_delayJQueryReady(e){let t=window.jQuery;Object.defineProperty(window,"jQuery",{get:()=>t,set(n){if(n&&n.fn&&!e.allJQueries.includes(n)){n.fn.ready=n.fn.init.prototype.ready=function(t){e.domReadyFired?t.bind(document)(n):document.addEventListener("rocket-DOMContentLoaded",(()=>t.bind(document)(n)))};const t=n.fn.on;n.fn.on=n.fn.init.prototype.on=function(){if(this[0]===window){function e(e){return e.split(" ").map((e=>"load"===e||0===e.indexOf("load.")?"rocket-jquery-load":e)).join(" ")}"string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=e(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach((t=>{delete Object.assign(arguments[0],{[e(t)]:arguments[0][t]})[t]}))}return t.apply(this,arguments),this},e.allJQueries.push(n)}t=n}})}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._littleBreath(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),window.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._littleBreath(),document.rocketonreadystatechange&&document.rocketonreadystatechange()}async _triggerWindowLoad(){await this._littleBreath(),window.dispatchEvent(new Event("rocket-load")),await this._littleBreath(),window.rocketonload&&window.rocketonload(),await this._littleBreath(),this.allJQueries.forEach((e=>e(window).trigger("rocket-jquery-load"))),await this._littleBreath();const e=new Event("rocket-pageshow");e.persisted=this.persisted,window.dispatchEvent(e),await this._littleBreath(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}_handleDocumentWrite(){const e=new Map;document.write=document.writeln=function(t){const n=document.currentScript,i=document.createRange(),r=n.parentElement;let o=e.get(n);void 0===o&&(o=n.nextSibling,e.set(n,o));const s=document.createDocumentFragment();i.setStart(s,0),s.appendChild(i.createContextualFragment(t)),r.insertBefore(s,o)}}async _littleBreath(){Date.now()-this.lastBreath>45&&(await this._requestAnimFrame(),this.lastBreath=Date.now())}async _requestAnimFrame(){return document.hidden?new Promise((e=>setTimeout(e))):new Promise((e=>requestAnimationFrame(e)))}static run(){const e=new RocketLazyLoadScripts;e._addUserInteractionListener(e)}}RocketLazyLoadScripts.run();</script>
+	
+		<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+	<!-- This site is optimized with the Yoast SEO plugin v27.5 - https://yoast.com/product/yoast-seo-wordpress/ -->
+	<title>Iogurte - Crescer no Digital</title>
+	<link rel="canonical" href="https://crescernodigital.com.br/iogurte/" />
+	<meta property="og:locale" content="pt_BR" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="Iogurte - Crescer no Digital" />
+	<meta property="og:description" content="CONQUISTE RENDA EXTRA COM A FABRICAÇÃO DE IOGURTE CASEIRO QUERO GARANTIR AGORA MEU CURSO DE MARMITAS MAIS DE 6 MIL ALUNAS Nosso curso acumula mais de 6 mil alunos lucrando com nossas receitas e nossos ensinamentos. AMO CULINÁRIA O amor pela culinária nasceu por insentivo da minha mãe, hoje sou profissional seguindos seus passos. MUDANDO [&hellip;]" />
+	<meta property="og:url" content="https://crescernodigital.com.br/iogurte/" />
+	<meta property="og:site_name" content="Crescer no Digital" />
+	<meta property="article:publisher" content="https://www.facebook.com/Crescer-no-Digital-111955437952262/" />
+	<meta property="article:modified_time" content="2023-04-03T21:54:40+00:00" />
+	<meta property="og:image" content="https://crescernodigital.com.br/wp-content/uploads/2023/02/TITULO-IOGURTE.png" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:label1" content="Est. tempo de leitura" />
+	<meta name="twitter:data1" content="11 minutos" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebPage","@id":"https:\/\/crescernodigital.com.br\/iogurte\/","url":"https:\/\/crescernodigital.com.br\/iogurte\/","name":"Iogurte - Crescer no Digital","isPartOf":{"@id":"https:\/\/crescernodigital.com.br\/#website"},"primaryImageOfPage":{"@id":"https:\/\/crescernodigital.com.br\/iogurte\/#primaryimage"},"image":{"@id":"https:\/\/crescernodigital.com.br\/iogurte\/#primaryimage"},"thumbnailUrl":"https:\/\/crescernodigital.com.br\/wp-content\/uploads\/2023\/02\/TITULO-IOGURTE.png","datePublished":"2023-02-10T02:06:32+00:00","dateModified":"2023-04-03T21:54:40+00:00","breadcrumb":{"@id":"https:\/\/crescernodigital.com.br\/iogurte\/#breadcrumb"},"inLanguage":"pt-BR","potentialAction":[{"@type":"ReadAction","target":["https:\/\/crescernodigital.com.br\/iogurte\/"]}]},{"@type":"ImageObject","inLanguage":"pt-BR","@id":"https:\/\/crescernodigital.com.br\/iogurte\/#primaryimage","url":"https:\/\/crescernodigital.com.br\/wp-content\/uploads\/2023\/02\/TITULO-IOGURTE.png","contentUrl":"https:\/\/crescernodigital.com.br\/wp-content\/uploads\/2023\/02\/TITULO-IOGURTE.png","width":887,"height":308},{"@type":"BreadcrumbList","@id":"https:\/\/crescernodigital.com.br\/iogurte\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/crescernodigital.com.br\/"},{"@type":"ListItem","position":2,"name":"Iogurte"}]},{"@type":"WebSite","@id":"https:\/\/crescernodigital.com.br\/#website","url":"https:\/\/crescernodigital.com.br\/","name":"Crescer no Digital","description":"Empreendedorismo Online","publisher":{"@id":"https:\/\/crescernodigital.com.br\/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/crescernodigital.com.br\/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"pt-BR"},{"@type":"Organization","@id":"https:\/\/crescernodigital.com.br\/#organization","name":"Crescer no Digital","url":"https:\/\/crescernodigital.com.br\/","logo":{"@type":"ImageObject","inLanguage":"pt-BR","@id":"https:\/\/crescernodigital.com.br\/#\/schema\/logo\/image\/","url":"https:\/\/crescernodigital.com.br\/wp-content\/uploads\/2021\/11\/cropped-Pale-Pink-Pinterest-Pin-for-Blog-Tips-1500-x-1000-px-1.png","contentUrl":"https:\/\/crescernodigital.com.br\/wp-content\/uploads\/2021\/11\/cropped-Pale-Pink-Pinterest-Pin-for-Blog-Tips-1500-x-1000-px-1.png","width":1378,"height":398,"caption":"Crescer no Digital"},"image":{"@id":"https:\/\/crescernodigital.com.br\/#\/schema\/logo\/image\/"},"sameAs":["https:\/\/www.facebook.com\/Crescer-no-Digital-111955437952262\/","https:\/\/www.instagram.com\/crescernodigital_\/","https:\/\/www.linkedin.com\/in\/isabellidettone\/","https:\/\/br.pinterest.com\/alieenisa\/"]}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<script type="rocketlazyloadscript" data-rocket-type='application/javascript'>console.log('PixelYourSite PRO version 9.4.2');</script>
+<link rel='dns-prefetch' href='//www.googletagmanager.com' />
+<link rel='dns-prefetch' href='//pagead2.googlesyndication.com' />
+<link rel="alternate" type="application/rss+xml" title="Feed para Crescer no Digital &raquo;" href="https://crescernodigital.com.br/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Feed de comentários para Crescer no Digital &raquo;" href="https://crescernodigital.com.br/comments/feed/" />
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript'>console.log('PixelYourSite Pinterest version 4.2.0');</script>
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://crescernodigital.com.br/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcrescernodigital.com.br%2Fiogurte%2F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://crescernodigital.com.br/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcrescernodigital.com.br%2Fiogurte%2F&#038;format=xml" />
+<style id='wp-img-auto-sizes-contain-inline-css'>
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<link data-minify="1" rel='stylesheet' id='jkit-elements-main-css' href='https://crescernodigital.com.br/wp-content/cache/min/1/wp-content/plugins/jeg-elementor-kit/assets/css/elements/main.css?ver=1777826267' media='all' />
+<style id='wp-emoji-styles-inline-css'>
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id='classic-theme-styles-inline-css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+<style id='global-styles-inline-css'>
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-term-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-term-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+<link rel='stylesheet' id='cookie-notice-front-css' href='https://crescernodigital.com.br/wp-content/plugins/cookie-notice/css/front.min.css?ver=3.0.2' media='all' />
+<link data-minify="1" rel='stylesheet' id='dashicons-css' href='https://crescernodigital.com.br/wp-content/cache/min/1/wp-includes/css/dashicons.min.css?ver=1777826267' media='all' />
+<link data-minify="1" rel='stylesheet' id='to-top-css' href='https://crescernodigital.com.br/wp-content/cache/min/1/wp-content/plugins/to-top/public/css/to-top-public.css?ver=1777826267' media='all' />
+<link data-minify="1" rel='stylesheet' id='elementor-icons-css' href='https://crescernodigital.com.br/wp-content/cache/min/1/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css?ver=1777826267' media='all' />
+<link rel='stylesheet' id='elementor-frontend-css' href='https://crescernodigital.com.br/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=4.0.5' media='all' />
+<link rel='stylesheet' id='elementor-post-16-css' href='https://crescernodigital.com.br/wp-content/uploads/elementor/css/post-16.css?ver=1777826266' media='all' />
+<link data-minify="1" rel='stylesheet' id='font-awesome-5-all-css' href='https://crescernodigital.com.br/wp-content/cache/min/1/wp-content/plugins/elementor/assets/lib/font-awesome/css/all.min.css?ver=1777826267' media='all' />
+<link rel='stylesheet' id='font-awesome-4-shim-css' href='https://crescernodigital.com.br/wp-content/plugins/elementor/assets/lib/font-awesome/css/v4-shims.min.css?ver=4.0.5' media='all' />
+<link rel='stylesheet' id='e-animation-grow-css' href='https://crescernodigital.com.br/wp-content/plugins/elementor/assets/lib/animations/styles/e-animation-grow.min.css?ver=4.0.5' media='all' />
+<link rel='stylesheet' id='widget-image-css' href='https://crescernodigital.com.br/wp-content/plugins/elementor/assets/css/widget-image.min.css?ver=4.0.5' media='all' />
+<link rel='stylesheet' id='widget-heading-css' href='https://crescernodigital.com.br/wp-content/plugins/elementor/assets/css/widget-heading.min.css?ver=4.0.5' media='all' />
+<link rel='stylesheet' id='widget-video-css' href='https://crescernodigital.com.br/wp-content/plugins/elementor/assets/css/widget-video.min.css?ver=4.0.5' media='all' />
+<link rel='stylesheet' id='widget-icon-box-css' href='https://crescernodigital.com.br/wp-content/plugins/elementor/assets/css/widget-icon-box.min.css?ver=4.0.5' media='all' />
+<link rel='stylesheet' id='widget-icon-list-css' href='https://crescernodigital.com.br/wp-content/plugins/elementor/assets/css/widget-icon-list.min.css?ver=4.0.5' media='all' />
+<link rel='stylesheet' id='widget-menu-anchor-css' href='https://crescernodigital.com.br/wp-content/plugins/elementor/assets/css/widget-menu-anchor.min.css?ver=4.0.5' media='all' />
+<link rel='stylesheet' id='widget-countdown-css' href='https://crescernodigital.com.br/wp-content/plugins/elementor-pro/assets/css/widget-countdown.min.css?ver=4.0.4' media='all' />
+<link rel='stylesheet' id='e-shapes-css' href='https://crescernodigital.com.br/wp-content/plugins/elementor/assets/css/conditionals/shapes.min.css?ver=4.0.5' media='all' />
+<link rel='stylesheet' id='elementor-post-7853-css' href='https://crescernodigital.com.br/wp-content/uploads/elementor/css/post-7853.css?ver=1777843666' media='all' />
+<link rel='stylesheet' id='hello-elementor-css' href='https://crescernodigital.com.br/wp-content/themes/hello-elementor/style.min.css?ver=3.1.1' media='all' />
+<link rel='stylesheet' id='hello-elementor-theme-style-css' href='https://crescernodigital.com.br/wp-content/themes/hello-elementor/theme.min.css?ver=3.1.1' media='all' />
+<link rel='stylesheet' id='hello-elementor-header-footer-css' href='https://crescernodigital.com.br/wp-content/themes/hello-elementor/header-footer.min.css?ver=3.1.1' media='all' />
+<link data-minify="1" rel='stylesheet' id='elementor-gf-local-roboto-css' href='https://crescernodigital.com.br/wp-content/cache/min/1/wp-content/uploads/elementor/google-fonts/css/roboto.css?ver=1777826267' media='all' />
+<link data-minify="1" rel='stylesheet' id='elementor-gf-local-robotoslab-css' href='https://crescernodigital.com.br/wp-content/cache/min/1/wp-content/uploads/elementor/google-fonts/css/robotoslab.css?ver=1777826267' media='all' />
+<link data-minify="1" rel='stylesheet' id='elementor-gf-local-montserrat-css' href='https://crescernodigital.com.br/wp-content/cache/min/1/wp-content/uploads/elementor/google-fonts/css/montserrat.css?ver=1777826267' media='all' />
+<link data-minify="1" rel='stylesheet' id='elementor-gf-local-sacramento-css' href='https://crescernodigital.com.br/wp-content/cache/min/1/wp-content/uploads/elementor/google-fonts/css/sacramento.css?ver=1777843667' media='all' />
+<link rel='stylesheet' id='elementor-icons-shared-0-css' href='https://crescernodigital.com.br/wp-content/plugins/elementor/assets/lib/font-awesome/css/fontawesome.min.css?ver=5.15.3' media='all' />
+<link data-minify="1" rel='stylesheet' id='elementor-icons-fa-solid-css' href='https://crescernodigital.com.br/wp-content/cache/min/1/wp-content/plugins/elementor/assets/lib/font-awesome/css/solid.min.css?ver=1777830627' media='all' />
+<link data-minify="1" rel='stylesheet' id='elementor-icons-fa-regular-css' href='https://crescernodigital.com.br/wp-content/cache/min/1/wp-content/plugins/elementor/assets/lib/font-awesome/css/regular.min.css?ver=1777830627' media='all' />
+<script type="rocketlazyloadscript" src="https://crescernodigital.com.br/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js" defer></script>
+<script type="rocketlazyloadscript" src="https://crescernodigital.com.br/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js" defer></script>
+<script id="to-top-js-extra">
+var to_top_options = {"scroll_offset":"100","icon_opacity":"50","style":"icon","icon_type":"dashicons-arrow-up-alt2","icon_color":"#ffffff","icon_bg_color":"#000000","icon_size":"32","border_radius":"5","image":"https://crescernodigital.com.br/wp-content/plugins/to-top/admin/images/default.png","image_width":"65","image_alt":"","location":"bottom-right","margin_x":"20","margin_y":"20","show_on_admin":"0","enable_autohide":"0","autohide_time":"2","enable_hide_small_device":"0","small_device_max_width":"640","reset":"0"};
+//# sourceURL=to-top-js-extra
+</script>
+<script type="rocketlazyloadscript" data-minify="1" async src="https://crescernodigital.com.br/wp-content/cache/min/1/wp-content/plugins/to-top/public/js/to-top-public.js?ver=1777562536" id="to-top-js"></script>
+<script type="rocketlazyloadscript" src="https://crescernodigital.com.br/wp-content/plugins/elementor/assets/lib/font-awesome/js/v4-shims.min.js?ver=4.0.5" id="font-awesome-4-shim-js" defer></script>
+<script type="rocketlazyloadscript" src="https://crescernodigital.com.br/wp-content/plugins/pixelyoursite-pro/dist/scripts/js.cookie-2.1.3.min.js?ver=2.1.3" id="js-cookie-pys-js" defer></script>
+<script type="rocketlazyloadscript" src="https://crescernodigital.com.br/wp-content/plugins/pixelyoursite-pro/dist/scripts/jquery.bind-first-0.2.3.min.js?ver=6.9.4" id="jquery-bind-first-js" defer></script>
+<script id="pys-js-extra">
+var pysOptions = {"staticEvents":{"facebook":{"init_event":[{"delay":0,"type":"static","name":"PageView","pixelIds":["732139854708665"],"params":{"page_title":"Iogurte","post_type":"page","post_id":7853,"plugin":"PixelYourSite","event_url":"crescernodigital.com.br/iogurte/","user_role":"guest"},"e_id":"init_event","ids":[],"hasTimeWindow":false,"timeWindow":0,"eventID":"","woo_order":"","edd_order":""}]}},"dynamicEvents":[],"triggerEvents":[],"triggerEventTypes":[],"facebook":{"pixelIds":["732139854708665"],"advancedMatchingEnabled":false,"advancedMatching":[],"removeMetadata":false,"wooVariableAsSimple":false,"serverApiEnabled":false,"ajaxForServerEvent":true,"wooCRSendFromServer":false,"send_external_id":true},"pinterest":{"pixelIds":["2612551935109"],"advancedMatching":[],"contentParams":{"post_type":"page","post_id":7853,"name":"Iogurte"},"wooVariableAsSimple":false},"debug":"","siteUrl":"https://crescernodigital.com.br","ajaxUrl":"https://crescernodigital.com.br/wp-admin/admin-ajax.php","ajax_event":"1ada78bfcb","trackUTMs":"1","trackTrafficSource":"1","user_id":"0","enable_lading_page_param":"1","cookie_duration":"7","enable_event_day_param":"1","enable_event_month_param":"1","enable_event_time_param":"1","enable_remove_target_url_param":"1","enable_remove_download_url_param":"1","visit_data_model":"first_visit","last_visit_duration":"60","enable_auto_save_advance_matching":"1","advance_matching_fn_names":["","first_name","first-name","first name","name"],"advance_matching_ln_names":["","last_name","last-name","last name"],"advance_matching_tel_names":["","phone","tel"],"gdpr":{"ajax_enabled":false,"all_disabled_by_api":false,"facebook_disabled_by_api":false,"tiktok_disabled_by_api":false,"analytics_disabled_by_api":false,"google_ads_disabled_by_api":false,"pinterest_disabled_by_api":false,"bing_disabled_by_api":false,"facebook_prior_consent_enabled":true,"tiktok_prior_consent_enabled":true,"analytics_prior_consent_enabled":true,"google_ads_prior_consent_enabled":true,"pinterest_prior_consent_enabled":true,"bing_prior_consent_enabled":true,"cookiebot_integration_enabled":false,"cookiebot_facebook_consent_category":"marketing","cookiebot_analytics_consent_category":"statistics","cookiebot_google_ads_consent_category":"marketing","cookiebot_pinterest_consent_category":"marketing","cookiebot_bing_consent_category":"marketing","cookie_notice_integration_enabled":false,"cookie_law_info_integration_enabled":false,"real_cookie_banner_integration_enabled":false,"consent_magic_integration_enabled":false},"automatic":{"enable_youtube":true,"enable_vimeo":true,"enable_video":true},"woo":{"enabled":false},"edd":{"enabled":false}};
+//# sourceURL=pys-js-extra
+</script>
+<script type="rocketlazyloadscript" data-minify="1" src="https://crescernodigital.com.br/wp-content/cache/min/1/wp-content/plugins/pixelyoursite-pro/dist/scripts/public.js?ver=1777562536" id="pys-js" defer></script>
+<script type="rocketlazyloadscript" data-minify="1" src="https://crescernodigital.com.br/wp-content/cache/min/1/wp-content/plugins/pixelyoursite-pinterest/dist/scripts/public.js?ver=1777562536" id="pys-pinterest-js" defer></script>
+
+<!-- Snippet da tag do Google (gtag.js) adicionado pelo Site Kit -->
+<!-- Snippet do Google Analytics adicionado pelo Site Kit -->
+<script type="rocketlazyloadscript" src="https://www.googletagmanager.com/gtag/js?id=G-V64SB9CK63" id="google_gtagjs-js" async></script>
+<script type="rocketlazyloadscript" id="google_gtagjs-js-after">
+window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}
+gtag("set","linker",{"domains":["crescernodigital.com.br"]});
+gtag("js", new Date());
+gtag("set", "developer_id.dZTNiMT", true);
+gtag("config", "G-V64SB9CK63");
+//# sourceURL=google_gtagjs-js-after
+</script>
+<link rel="https://api.w.org/" href="https://crescernodigital.com.br/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://crescernodigital.com.br/wp-json/wp/v2/pages/7853" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://crescernodigital.com.br/xmlrpc.php?rsd" />
+<meta name="generator" content="WordPress 6.9.4" />
+<link rel='shortlink' href='https://crescernodigital.com.br/?p=7853' />
+<meta name="generator" content="Site Kit by Google 1.177.0" /><!-- HFCM by 99 Robots - Snippet # 1: Pixel do Facebook - canvacriativopacks -->
+<!-- Facebook Pixel Code -->
+<script type="rocketlazyloadscript">
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '818384020911022');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=818384020911022&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Facebook Pixel Code -->
+<!-- /end HFCM by 99 Robots -->
+<!-- HFCM by 99 Robots - Snippet # 2: Verificação de Domínio -->
+<meta name="facebook-domain-verification" content="toq821k3nxrs73hf2562r6v46cs6cx" />
+<!-- /end HFCM by 99 Robots -->
+<!-- HFCM by 99 Robots - Snippet # 3: Google AdSense -->
+<script type="rocketlazyloadscript" data-ad-client="ca-pub-4438758239925980" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- /end HFCM by 99 Robots -->
+<!-- HFCM by 99 Robots - Snippet # 4: Tag Pinterest -->
+<!-- Pinterest Tag -->
+<script type="rocketlazyloadscript">
+!function(e){if(!window.pintrk){window.pintrk = function () {
+window.pintrk.queue.push(Array.prototype.slice.call(arguments))};var
+  n=window.pintrk;n.queue=[],n.version="3.0";var
+  t=document.createElement("script");t.async=!0,t.src=e;var
+  r=document.getElementsByTagName("script")[0];
+  r.parentNode.insertBefore(t,r)}}("https://s.pinimg.com/ct/core.js");
+pintrk('load', '2613986312764', {em: '<user_email_address>'});
+pintrk('page');
+</script>
+<noscript>
+<img height="1" width="1" style="display:none;" alt=""
+  src="https://ct.pinterest.com/v3/?event=init&tid=2613986312764&pd[em]=<hashed_email_address>&noscript=1" />
+</noscript>
+<!-- end Pinterest Tag -->
+<!-- /end HFCM by 99 Robots -->
+<!-- HFCM by 99 Robots - Snippet # 5: Pixel do Facebook - Crescer no Digital -->
+<!-- Meta Pixel Code -->
+<script type="rocketlazyloadscript">
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '818384020911022');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=818384020911022&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<!-- /end HFCM by 99 Robots -->
+<!-- HFCM by 99 Robots - Snippet # 6: Tag do Google -->
+<!-- Google tag (gtag.js) -->
+<script type="rocketlazyloadscript" async src="https://www.googletagmanager.com/gtag/js?id=AW-10815277593"></script>
+<script type="rocketlazyloadscript">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-10815277593');
+</script>
+
+<!-- /end HFCM by 99 Robots -->
+<!-- HFCM by 99 Robots - Snippet # 8: Código do Google ADS -->
+<!-- Google tag (gtag.js) - Google Analytics -->
+<script type="rocketlazyloadscript" async src="https://www.googletagmanager.com/gtag/js?id=G-V64SB9CK63">
+</script>
+<script type="rocketlazyloadscript">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-V64SB9CK63');
+</script>
+<!-- /end HFCM by 99 Robots -->
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' data-cfasync='false'>var _mmunch = {'front': false, 'page': false, 'post': false, 'category': false, 'author': false, 'search': false, 'attachment': false, 'tag': false};_mmunch['page'] = true; _mmunch['pageData'] = {"ID":7853,"post_name":"iogurte","post_title":"Iogurte","post_type":"page","post_author":"1","post_status":"publish"};</script><script type="rocketlazyloadscript" data-cfasync="false" src="//a.mailmunch.co/app/v1/site.js" id="mailmunch-script" data-plugin="mailmunch" data-mailmunch-site-id="973234" async></script>
+<!-- Meta tags do Google AdSense adicionadas pelo Site Kit -->
+<meta name="google-adsense-platform-account" content="ca-host-pub-2644536267352236">
+<meta name="google-adsense-platform-domain" content="sitekit.withgoogle.com">
+<!-- Fim das meta tags do Google AdSense adicionadas pelo Site Kit -->
+<meta name="generator" content="Elementor 4.0.5; features: additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-auto">
+			<style>
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload),
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload) * {
+					background-image: none !important;
+				}
+				@media screen and (max-height: 1024px) {
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+				@media screen and (max-height: 640px) {
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+			</style>
+			
+<!-- Snippet do Google AdSense adicionado pelo Site Kit -->
+<script type="rocketlazyloadscript" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4438758239925980&amp;host=ca-host-pub-2644536267352236" crossorigin="anonymous"></script>
+
+<!-- Fim do snippet do Google AdSense adicionado pelo Site Kit -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" /></head>
+<body class="wp-singular page-template page-template-elementor_canvas page page-id-7853 wp-custom-logo wp-theme-hello-elementor cookies-set cookies-accepted jkit-color-scheme elementor-default elementor-template-canvas elementor-kit-16 elementor-page elementor-page-7853">
+	<div class='mailmunch-forms-before-post' style='display: none !important;'></div>		<div data-elementor-type="wp-page" data-elementor-id="7853" class="elementor elementor-7853" data-elementor-post-type="page">
+						<section class="elementor-section elementor-top-section elementor-element elementor-element-33918330 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="33918330" data-element_type="section" data-e-type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+							<div class="elementor-background-overlay"></div>
+							<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-416bc5c5" data-id="416bc5c5" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap">
+							</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-16e810ff" data-id="16e810ff" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-6a94ef42 elementor-widget elementor-widget-image" data-id="6a94ef42" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img fetchpriority="high" decoding="async" width="800" height="278" src="https://crescernodigital.com.br/wp-content/uploads/2023/02/TITULO-IOGURTE.png" class="elementor-animation-grow attachment-large size-large wp-image-7855" alt="" srcset="https://crescernodigital.com.br/wp-content/uploads/2023/02/TITULO-IOGURTE.png 887w, https://crescernodigital.com.br/wp-content/uploads/2023/02/TITULO-IOGURTE-300x104.png 300w, https://crescernodigital.com.br/wp-content/uploads/2023/02/TITULO-IOGURTE-768x267.png 768w" sizes="(max-width: 800px) 100vw, 800px" />															</div>
+				</div>
+				<div class="elementor-element elementor-element-59338e63 elementor-widget elementor-widget-text-editor" data-id="59338e63" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>CONQUISTE RENDA EXTRA COM A FABRICAÇÃO DE</p>								</div>
+				</div>
+				<div class="elementor-element elementor-element-cfe5dcf elementor-widget elementor-widget-heading" data-id="cfe5dcf" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h1 class="elementor-heading-title elementor-size-large">IOGURTE CASEIRO</h1>				</div>
+				</div>
+				<div class="elementor-element elementor-element-14f9c532 elementor-widget elementor-widget-video" data-id="14f9c532" data-element_type="widget" data-e-type="widget" data-settings="{&quot;youtube_url&quot;:&quot;https:\/\/www.youtube.com\/watch?v=tkulj6ZIPZk&quot;,&quot;show_image_overlay&quot;:&quot;yes&quot;,&quot;image_overlay&quot;:{&quot;url&quot;:&quot;https:\/\/crescernodigital.com.br\/wp-content\/uploads\/2023\/02\/Design-sem-nome-12.png&quot;,&quot;id&quot;:7856,&quot;size&quot;:&quot;&quot;},&quot;video_type&quot;:&quot;youtube&quot;,&quot;controls&quot;:&quot;yes&quot;}" data-widget_type="video.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-wrapper elementor-open-inline">
+			<div class="elementor-video"></div>				<div class="elementor-custom-embed-image-overlay" style="background-image: url(https://crescernodigital.com.br/wp-content/uploads/2023/02/Design-sem-nome-12.png);">
+														</div>
+					</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-6d6ff9e8 elementor-align-center elementor-widget elementor-widget-button" data-id="6d6ff9e8" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_animation&quot;:&quot;none&quot;}" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-button-wrapper">
+					<a class="elementor-button elementor-button-link elementor-size-lg elementor-animation-grow" href="https://checkout.escalepay.com/1087099" target="_blank">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">QUERO GARANTIR AGORA MEU CURSO DE MARMITAS</span>
+					</span>
+					</a>
+				</div>
+								</div>
+				</div>
+				<div class="elementor-element elementor-element-4812e98 elementor-widget elementor-widget-image" data-id="4812e98" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="800" height="42" src="https://crescernodigital.com.br/wp-content/uploads/2023/02/ICONS-YOG.png" class="attachment-large size-large wp-image-7857" alt="" srcset="https://crescernodigital.com.br/wp-content/uploads/2023/02/ICONS-YOG.png 988w, https://crescernodigital.com.br/wp-content/uploads/2023/02/ICONS-YOG-300x16.png 300w, https://crescernodigital.com.br/wp-content/uploads/2023/02/ICONS-YOG-768x40.png 768w" sizes="(max-width: 800px) 100vw, 800px" />															</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-4b150ed9" data-id="4b150ed9" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap">
+							</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-2d6dfcf5 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="2d6dfcf5" data-element_type="section" data-e-type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-73bb1133" data-id="73bb1133" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<section class="elementor-section elementor-inner-section elementor-element elementor-element-551eb62c elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="551eb62c" data-element_type="section" data-e-type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+							<div class="elementor-background-overlay"></div>
+							<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-1c6b6fac" data-id="1c6b6fac" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-fdaae70 elementor-view-default elementor-position-block-start elementor-mobile-position-block-start elementor-widget elementor-widget-icon-box" data-id="fdaae70" data-element_type="widget" data-e-type="widget" data-widget_type="icon-box.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-icon-box-wrapper">
+
+						<div class="elementor-icon-box-icon">
+				<span  class="elementor-icon">
+				<i aria-hidden="true" class="fas fa-thumbs-up"></i>				</span>
+			</div>
+			
+						<div class="elementor-icon-box-content">
+
+									<div class="elementor-icon-box-title">
+						<span  >
+							MAIS DE 6 MIL ALUNAS						</span>
+					</div>
+				
+									<p class="elementor-icon-box-description">
+						Nosso curso acumula mais de 6 mil alunos lucrando com nossas receitas e nossos ensinamentos. 					</p>
+				
+			</div>
+			
+		</div>
+						</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-3c89136f" data-id="3c89136f" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-737d6b23 elementor-view-default elementor-position-block-start elementor-mobile-position-block-start elementor-widget elementor-widget-icon-box" data-id="737d6b23" data-element_type="widget" data-e-type="widget" data-widget_type="icon-box.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-icon-box-wrapper">
+
+						<div class="elementor-icon-box-icon">
+				<span  class="elementor-icon">
+				<i aria-hidden="true" class="fas fa-mail-bulk"></i>				</span>
+			</div>
+			
+						<div class="elementor-icon-box-content">
+
+									<div class="elementor-icon-box-title">
+						<span  >
+							AMO CULINÁRIA 						</span>
+					</div>
+				
+									<p class="elementor-icon-box-description">
+						O amor pela culinária nasceu por insentivo da minha mãe, hoje sou profissional seguindos seus passos. 					</p>
+				
+			</div>
+			
+		</div>
+						</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-1982d816" data-id="1982d816" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-3eac22b elementor-view-default elementor-position-block-start elementor-mobile-position-block-start elementor-widget elementor-widget-icon-box" data-id="3eac22b" data-element_type="widget" data-e-type="widget" data-widget_type="icon-box.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-icon-box-wrapper">
+
+						<div class="elementor-icon-box-icon">
+				<span  class="elementor-icon">
+				<i aria-hidden="true" class="far fa-address-card"></i>				</span>
+			</div>
+			
+						<div class="elementor-icon-box-content">
+
+									<div class="elementor-icon-box-title">
+						<span  >
+							MUDANDO VIDAS 						</span>
+					</div>
+				
+									<p class="elementor-icon-box-description">
+						Com minhas aulas e meu curso, milhares de alunos mudaram suas vidas para melhor. 					</p>
+				
+			</div>
+			
+		</div>
+						</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-ae04ef5 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="ae04ef5" data-element_type="section" data-e-type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-58b8e88e" data-id="58b8e88e" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-772f829e elementor-widget elementor-widget-image" data-id="772f829e" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="800" height="825" src="https://crescernodigital.com.br/wp-content/uploads/2023/02/IMG-YGT-01.webp" class="elementor-animation-grow attachment-large size-large wp-image-7859" alt="" srcset="https://crescernodigital.com.br/wp-content/uploads/2023/02/IMG-YGT-01.webp 993w, https://crescernodigital.com.br/wp-content/uploads/2023/02/IMG-YGT-01-291x300.webp 291w, https://crescernodigital.com.br/wp-content/uploads/2023/02/IMG-YGT-01-768x792.webp 768w" sizes="(max-width: 800px) 100vw, 800px" />															</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-e825922" data-id="e825922" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-7ab6c511 elementor-widget elementor-widget-heading" data-id="7ab6c511" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h1 class="elementor-heading-title elementor-size-medium">Jessica Sotero</h1>				</div>
+				</div>
+				<div class="elementor-element elementor-element-6c4c3a9c elementor-widget elementor-widget-text-editor" data-id="6c4c3a9c" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>Sou amante a mais de 2 anos, nesse tempo venho produzindo conteúdo para internet, e transformando a vida de mulheres que querem empreender de alguma forma com culinária. Nesse período já produzi mais de 10 apostilas e um curso em vídeo que juntos impactaram mais de 35 mil pessoas no Brasil e em mais de 10 outros países. Além de me dedicar a produzir conteúdo para internet também me dedico a uma associação que busca proteger e cuidar dos animais de rua, pois esse trabalho voluntario é uma das minhas maiores paixões. Espero que eu consiga te ajudar de alguma forma com meus conteúdos na internet.</p>								</div>
+				</div>
+				<div class="elementor-element elementor-element-29fc4ee6 elementor-align-center elementor-widget elementor-widget-button" data-id="29fc4ee6" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_animation&quot;:&quot;none&quot;}" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-button-wrapper">
+					<a class="elementor-button elementor-button-link elementor-size-lg elementor-animation-grow" href="https://checkout.escalepay.com/1087099" target="_blank">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">QUERO LUCRAR COM IORGUTE CASEIRO</span>
+					</span>
+					</a>
+				</div>
+								</div>
+				</div>
+				<div class="elementor-element elementor-element-37411332 elementor-widget elementor-widget-image" data-id="37411332" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img loading="lazy" decoding="async" width="518" height="51" src="https://crescernodigital.com.br/wp-content/uploads/2023/02/modo-de-pagamento-1-1-1-1.png" class="attachment-large size-large wp-image-7860" alt="" srcset="https://crescernodigital.com.br/wp-content/uploads/2023/02/modo-de-pagamento-1-1-1-1.png 518w, https://crescernodigital.com.br/wp-content/uploads/2023/02/modo-de-pagamento-1-1-1-1-300x30.png 300w" sizes="(max-width: 518px) 100vw, 518px" />															</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-5d1d6112 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="5d1d6112" data-element_type="section" data-e-type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+							<div class="elementor-background-overlay"></div>
+							<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-6654b6da" data-id="6654b6da" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-6e107132 elementor-widget elementor-widget-image" data-id="6e107132" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_animation&quot;:&quot;none&quot;,&quot;_animation_delay&quot;:1900}" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img loading="lazy" decoding="async" width="800" height="278" src="https://crescernodigital.com.br/wp-content/uploads/2023/02/TITULO-IOGURTE-1.png" class="elementor-animation-grow attachment-large size-large wp-image-7861" alt="" srcset="https://crescernodigital.com.br/wp-content/uploads/2023/02/TITULO-IOGURTE-1.png 887w, https://crescernodigital.com.br/wp-content/uploads/2023/02/TITULO-IOGURTE-1-300x104.png 300w, https://crescernodigital.com.br/wp-content/uploads/2023/02/TITULO-IOGURTE-1-768x267.png 768w" sizes="(max-width: 800px) 100vw, 800px" />															</div>
+				</div>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-77b8d64f elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="77b8d64f" data-element_type="section" data-e-type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-5ed6ae70" data-id="5ed6ae70" data-element_type="column" data-e-type="column" data-settings="{&quot;background_background&quot;:&quot;gradient&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-78ff5a3a elementor-widget elementor-widget-image" data-id="78ff5a3a" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_animation&quot;:&quot;none&quot;}" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img loading="lazy" decoding="async" width="800" height="800" src="https://crescernodigital.com.br/wp-content/uploads/2023/02/SABOR-MORANGO-1024x1024.webp" class="elementor-animation-grow attachment-large size-large wp-image-7862" alt="" srcset="https://crescernodigital.com.br/wp-content/uploads/2023/02/SABOR-MORANGO.webp 1024w, https://crescernodigital.com.br/wp-content/uploads/2023/02/SABOR-MORANGO-300x300.webp 300w, https://crescernodigital.com.br/wp-content/uploads/2023/02/SABOR-MORANGO-150x150.webp 150w, https://crescernodigital.com.br/wp-content/uploads/2023/02/SABOR-MORANGO-768x768.webp 768w" sizes="(max-width: 800px) 100vw, 800px" />															</div>
+				</div>
+				<div class="elementor-element elementor-element-49ed3a86 elementor-widget elementor-widget-heading" data-id="49ed3a86" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h1 class="elementor-heading-title elementor-size-default">🍓MORANGO NATURAL🍓
+</h1>				</div>
+				</div>
+				<div class="elementor-element elementor-element-59614f8e elementor-align-center elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="59614f8e" data-element_type="widget" data-e-type="widget" data-widget_type="icon-list.default">
+				<div class="elementor-widget-container">
+							<ul class="elementor-icon-list-items">
+							<li class="elementor-icon-list-item">
+										<span class="elementor-icon-list-text">O Iogurte de Morango e feito com frutas frescas, com toda certeza é um dos mais vendidos.</span>
+									</li>
+						</ul>
+						</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-4226dec8" data-id="4226dec8" data-element_type="column" data-e-type="column" data-settings="{&quot;background_background&quot;:&quot;gradient&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-57b439a9 elementor-widget elementor-widget-image" data-id="57b439a9" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_animation&quot;:&quot;none&quot;}" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img loading="lazy" decoding="async" width="800" height="800" src="https://crescernodigital.com.br/wp-content/uploads/2023/02/SABOR-KIWI-1024x1024.webp" class="elementor-animation-grow attachment-large size-large wp-image-7863" alt="" srcset="https://crescernodigital.com.br/wp-content/uploads/2023/02/SABOR-KIWI.webp 1024w, https://crescernodigital.com.br/wp-content/uploads/2023/02/SABOR-KIWI-300x300.webp 300w, https://crescernodigital.com.br/wp-content/uploads/2023/02/SABOR-KIWI-150x150.webp 150w, https://crescernodigital.com.br/wp-content/uploads/2023/02/SABOR-KIWI-768x768.webp 768w" sizes="(max-width: 800px) 100vw, 800px" />															</div>
+				</div>
+				<div class="elementor-element elementor-element-7ec128e2 elementor-widget elementor-widget-heading" data-id="7ec128e2" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h1 class="elementor-heading-title elementor-size-default">
+🥝SABOR KIWI🥝
+</h1>				</div>
+				</div>
+				<div class="elementor-element elementor-element-62e5d16a elementor-align-center elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="62e5d16a" data-element_type="widget" data-e-type="widget" data-widget_type="icon-list.default">
+				<div class="elementor-widget-container">
+							<ul class="elementor-icon-list-items">
+							<li class="elementor-icon-list-item">
+										<span class="elementor-icon-list-text">Assim como de morango, nesse sabor, nós utilizamos frutas frescas e de qualidade sem agrotóxicos.</span>
+									</li>
+						</ul>
+						</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-5a8eeb9" data-id="5a8eeb9" data-element_type="column" data-e-type="column" data-settings="{&quot;background_background&quot;:&quot;gradient&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-1ed06762 elementor-widget elementor-widget-image" data-id="1ed06762" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_animation&quot;:&quot;none&quot;}" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img loading="lazy" decoding="async" width="800" height="800" src="https://crescernodigital.com.br/wp-content/uploads/2023/02/SABOR-MARACUJA-1024x1024.webp" class="elementor-animation-grow attachment-large size-large wp-image-7864" alt="" srcset="https://crescernodigital.com.br/wp-content/uploads/2023/02/SABOR-MARACUJA.webp 1024w, https://crescernodigital.com.br/wp-content/uploads/2023/02/SABOR-MARACUJA-300x300.webp 300w, https://crescernodigital.com.br/wp-content/uploads/2023/02/SABOR-MARACUJA-150x150.webp 150w, https://crescernodigital.com.br/wp-content/uploads/2023/02/SABOR-MARACUJA-768x768.webp 768w" sizes="(max-width: 800px) 100vw, 800px" />															</div>
+				</div>
+				<div class="elementor-element elementor-element-115ef8bf elementor-widget elementor-widget-heading" data-id="115ef8bf" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h1 class="elementor-heading-title elementor-size-default">
+🍋SABOR MARACUJÁ🍋
+</h1>				</div>
+				</div>
+				<div class="elementor-element elementor-element-506a3b9 elementor-align-center elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="506a3b9" data-element_type="widget" data-e-type="widget" data-widget_type="icon-list.default">
+				<div class="elementor-widget-container">
+							<ul class="elementor-icon-list-items">
+							<li class="elementor-icon-list-item">
+										<span class="elementor-icon-list-text">  Um sabor azedinho, mas muito gostoso. Um sucesso de vendas “E você pode acrescentar açucar” 🍒</span>
+									</li>
+						</ul>
+						</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-39c08b3c elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="39c08b3c" data-element_type="section" data-e-type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-197e0b08" data-id="197e0b08" data-element_type="column" data-e-type="column" data-settings="{&quot;background_background&quot;:&quot;gradient&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-15c3ecfb elementor-widget elementor-widget-image" data-id="15c3ecfb" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_animation&quot;:&quot;none&quot;}" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img loading="lazy" decoding="async" width="800" height="800" src="https://crescernodigital.com.br/wp-content/uploads/2023/02/SABOR-AMEIXA-1024x1024.webp" class="elementor-animation-grow attachment-large size-large wp-image-7865" alt="" srcset="https://crescernodigital.com.br/wp-content/uploads/2023/02/SABOR-AMEIXA.webp 1024w, https://crescernodigital.com.br/wp-content/uploads/2023/02/SABOR-AMEIXA-300x300.webp 300w, https://crescernodigital.com.br/wp-content/uploads/2023/02/SABOR-AMEIXA-150x150.webp 150w, https://crescernodigital.com.br/wp-content/uploads/2023/02/SABOR-AMEIXA-768x768.webp 768w" sizes="(max-width: 800px) 100vw, 800px" />															</div>
+				</div>
+				<div class="elementor-element elementor-element-3fd43406 elementor-widget elementor-widget-heading" data-id="3fd43406" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h1 class="elementor-heading-title elementor-size-default">
+🍒SABOR AMEIXA🍒
+</h1>				</div>
+				</div>
+				<div class="elementor-element elementor-element-725b22a4 elementor-align-center elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="725b22a4" data-element_type="widget" data-e-type="widget" data-widget_type="icon-list.default">
+				<div class="elementor-widget-container">
+							<ul class="elementor-icon-list-items">
+							<li class="elementor-icon-list-item">
+										<span class="elementor-icon-list-text">Um sucesso para nutricionistas e pessoas que estão de dieta. Combinação para perder peso.</span>
+									</li>
+						</ul>
+						</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-623ad4d4" data-id="623ad4d4" data-element_type="column" data-e-type="column" data-settings="{&quot;background_background&quot;:&quot;gradient&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-7eab2562 elementor-widget elementor-widget-image" data-id="7eab2562" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_animation&quot;:&quot;none&quot;}" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img loading="lazy" decoding="async" width="800" height="800" src="https://crescernodigital.com.br/wp-content/uploads/2023/02/SABOR-NUTELLA-1024x1024.webp" class="elementor-animation-grow attachment-large size-large wp-image-7866" alt="" srcset="https://crescernodigital.com.br/wp-content/uploads/2023/02/SABOR-NUTELLA.webp 1024w, https://crescernodigital.com.br/wp-content/uploads/2023/02/SABOR-NUTELLA-300x300.webp 300w, https://crescernodigital.com.br/wp-content/uploads/2023/02/SABOR-NUTELLA-150x150.webp 150w, https://crescernodigital.com.br/wp-content/uploads/2023/02/SABOR-NUTELLA-768x768.webp 768w" sizes="(max-width: 800px) 100vw, 800px" />															</div>
+				</div>
+				<div class="elementor-element elementor-element-3e896dd9 elementor-widget elementor-widget-heading" data-id="3e896dd9" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h1 class="elementor-heading-title elementor-size-default">
+🍫SABOR NUTELLA🍫
+</h1>				</div>
+				</div>
+				<div class="elementor-element elementor-element-712048c4 elementor-align-center elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="712048c4" data-element_type="widget" data-e-type="widget" data-widget_type="icon-list.default">
+				<div class="elementor-widget-container">
+							<ul class="elementor-icon-list-items">
+							<li class="elementor-icon-list-item">
+										<span class="elementor-icon-list-text">Um sucesso de vendas, principalmente para a criançada, receita exclusiva e saborosa.</span>
+									</li>
+						</ul>
+						</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-5d69eb3d" data-id="5d69eb3d" data-element_type="column" data-e-type="column" data-settings="{&quot;background_background&quot;:&quot;gradient&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-24e6b8d1 elementor-widget elementor-widget-image" data-id="24e6b8d1" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_animation&quot;:&quot;none&quot;}" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img loading="lazy" decoding="async" width="800" height="800" src="https://crescernodigital.com.br/wp-content/uploads/2023/02/SABOR-MORANGO-NUTELLA-1024x1024.png" class="elementor-animation-grow attachment-large size-large wp-image-7867" alt="" srcset="https://crescernodigital.com.br/wp-content/uploads/2023/02/SABOR-MORANGO-NUTELLA.png 1024w, https://crescernodigital.com.br/wp-content/uploads/2023/02/SABOR-MORANGO-NUTELLA-300x300.png 300w, https://crescernodigital.com.br/wp-content/uploads/2023/02/SABOR-MORANGO-NUTELLA-150x150.png 150w, https://crescernodigital.com.br/wp-content/uploads/2023/02/SABOR-MORANGO-NUTELLA-768x768.png 768w" sizes="(max-width: 800px) 100vw, 800px" />															</div>
+				</div>
+				<div class="elementor-element elementor-element-768d3ec5 elementor-widget elementor-widget-heading" data-id="768d3ec5" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h1 class="elementor-heading-title elementor-size-default">
+🍧NUTELLA+MORANGO🍧
+</h1>				</div>
+				</div>
+				<div class="elementor-element elementor-element-734e188d elementor-align-center elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="734e188d" data-element_type="widget" data-e-type="widget" data-widget_type="icon-list.default">
+				<div class="elementor-widget-container">
+							<ul class="elementor-icon-list-items">
+							<li class="elementor-icon-list-item">
+										<span class="elementor-icon-list-text">A combinação do chocolate mais famoso com aquele gostinho do morango para brilhar.</span>
+									</li>
+						</ul>
+						</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<div class="elementor-element elementor-element-2b9e2d79 elementor-align-center elementor-widget elementor-widget-button" data-id="2b9e2d79" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_animation&quot;:&quot;none&quot;}" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-button-wrapper">
+					<a class="elementor-button elementor-button-link elementor-size-lg elementor-animation-grow" href="https://checkout.escalepay.com/1087099" target="_blank">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">QUERO LUCRAR COM IORGUTE CASEIRO</span>
+					</span>
+					</a>
+				</div>
+								</div>
+				</div>
+				<div class="elementor-element elementor-element-628177a4 elementor-widget elementor-widget-image" data-id="628177a4" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img loading="lazy" decoding="async" width="518" height="51" src="https://crescernodigital.com.br/wp-content/uploads/2023/02/modo-de-pagamento-1-1-1.png" class="attachment-large size-large wp-image-7868" alt="" srcset="https://crescernodigital.com.br/wp-content/uploads/2023/02/modo-de-pagamento-1-1-1.png 518w, https://crescernodigital.com.br/wp-content/uploads/2023/02/modo-de-pagamento-1-1-1-300x30.png 300w" sizes="(max-width: 518px) 100vw, 518px" />															</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-688d5476 elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="688d5476" data-element_type="section" data-e-type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-6c76b9f4" data-id="6c76b9f4" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<section class="elementor-section elementor-inner-section elementor-element elementor-element-77ebb7f2 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="77ebb7f2" data-element_type="section" data-e-type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-74b7f991" data-id="74b7f991" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-4bbbaaad elementor-widget elementor-widget-image" data-id="4bbbaaad" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img loading="lazy" decoding="async" width="800" height="800" src="https://crescernodigital.com.br/wp-content/uploads/2023/02/IOGURTE-BOX-PRE195135O-1024x1024.webp" class="attachment-large size-large wp-image-7870" alt="" srcset="https://crescernodigital.com.br/wp-content/uploads/2023/02/IOGURTE-BOX-PRE195135O.webp 1024w, https://crescernodigital.com.br/wp-content/uploads/2023/02/IOGURTE-BOX-PRE195135O-300x300.webp 300w, https://crescernodigital.com.br/wp-content/uploads/2023/02/IOGURTE-BOX-PRE195135O-150x150.webp 150w, https://crescernodigital.com.br/wp-content/uploads/2023/02/IOGURTE-BOX-PRE195135O-768x768.webp 768w" sizes="(max-width: 800px) 100vw, 800px" />															</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-67090fa9" data-id="67090fa9" data-element_type="column" data-e-type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+					<div class="elementor-background-overlay"></div>
+						<div class="elementor-element elementor-element-575f1796 elementor-widget elementor-widget-menu-anchor" data-id="575f1796" data-element_type="widget" data-e-type="widget" data-widget_type="menu-anchor.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-menu-anchor" id="comprar"></div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-14706967 elementor-widget elementor-widget-heading" data-id="14706967" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">OFERTA ESPECIAL</h2>				</div>
+				</div>
+				<div class="elementor-element elementor-element-7279d715 elementor-countdown--label-block elementor-widget elementor-widget-countdown" data-id="7279d715" data-element_type="widget" data-e-type="widget" data-widget_type="countdown.default">
+				<div class="elementor-widget-container">
+							<div data-evergreen-interval="288000900" class="elementor-countdown-wrapper" data-date="">
+			<div class="elementor-countdown-item"><span class="elementor-countdown-digits elementor-countdown-minutes"></span> <span class="elementor-countdown-label">Minutos</span></div><div class="elementor-countdown-item"><span class="elementor-countdown-digits elementor-countdown-seconds"></span> <span class="elementor-countdown-label">Segundos</span></div>		</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-2e93befa elementor-widget elementor-widget-text-editor" data-id="2e93befa" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-element elementor-element-e2aad54 elementor-widget elementor-widget-text-editor" data-id="e2aad54" data-element_type="widget" data-widget_type="text-editor.default">
+<div class="elementor-widget-container">
+<div class="elementor-text-editor elementor-clearfix">
+<p style="text-align: center;"><span style="color: #ffffff;"><b>DE R$197,00 POR APENAS</b></span></p>
+</div>
+</div>
+</div>
+<div class="elementor-element elementor-element-a788bc0 elementor-widget elementor-widget-eael-creative-button" data-id="a788bc0" data-element_type="widget" data-widget_type="eael-creative-button.default">
+<div class="elementor-widget-container">
+<div class="eael-creative-button-wrapper">
+<div class="creative-button-inner">&nbsp;</div>
+</div>
+</div>
+</div>								</div>
+				</div>
+				<div class="elementor-element elementor-element-53ced7d3 elementor-widget elementor-widget-text-editor" data-id="53ced7d3" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p><span style="color: #ffffff;">R$47,00</span></p>								</div>
+				</div>
+				<div class="elementor-element elementor-element-42b26363 elementor-widget elementor-widget-text-editor" data-id="42b26363" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-element elementor-element-e2aad54 elementor-widget elementor-widget-text-editor" data-id="e2aad54" data-element_type="widget" data-widget_type="text-editor.default">
+<div class="elementor-widget-container">
+<div class="elementor-text-editor elementor-clearfix">
+<p style="text-align: center;"><span style="color: #ffffff;"><b>ou 6x DE R$7,80*</b></span></p>
+</div>
+</div>
+</div>
+<div class="elementor-element elementor-element-a788bc0 elementor-widget elementor-widget-eael-creative-button" data-id="a788bc0" data-element_type="widget" data-widget_type="eael-creative-button.default">
+<div class="elementor-widget-container">
+<div class="eael-creative-button-wrapper">
+<div class="creative-button-inner">&nbsp;</div>
+</div>
+</div>
+</div>								</div>
+				</div>
+				<div class="elementor-element elementor-element-3e01a75d elementor-align-center elementor-widget elementor-widget-button" data-id="3e01a75d" data-element_type="widget" data-e-type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-button-wrapper">
+					<a class="elementor-button elementor-button-link elementor-size-md elementor-animation-grow" href="https://checkout.escalepay.com/1087099">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">COMPRAR AGORA</span>
+					</span>
+					</a>
+				</div>
+								</div>
+				</div>
+				<div class="elementor-element elementor-element-2e33363e elementor-widget elementor-widget-image" data-id="2e33363e" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img loading="lazy" decoding="async" width="767" height="111" src="https://crescernodigital.com.br/wp-content/uploads/2023/02/ICONES-REGUA-1-1-1.png" class="attachment-large size-large wp-image-7871" alt="" srcset="https://crescernodigital.com.br/wp-content/uploads/2023/02/ICONES-REGUA-1-1-1.png 767w, https://crescernodigital.com.br/wp-content/uploads/2023/02/ICONES-REGUA-1-1-1-300x43.png 300w" sizes="(max-width: 767px) 100vw, 767px" />															</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-32c8b24d elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="32c8b24d" data-element_type="section" data-e-type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-79296052" data-id="79296052" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-36fd5c92 elementor-widget elementor-widget-heading" data-id="36fd5c92" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">COMO NOSSO CURSO PODE MUDAR SUA VIDA?</h2>				</div>
+				</div>
+				<div class="elementor-element elementor-element-41b39e70 elementor-widget elementor-widget-text-editor" data-id="41b39e70" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>O curso de <strong>IOGURTE CASEIRO</strong> foi criado pensando exatamente em como resolver o seu principal problema, <strong>GANHAR DINHEIRO</strong>. E consequentemente ajudar a resolver todos os outros problemas. O Curso de IOGURTE CASEIRO é um conjunto de 20 receitas <strong>DELICIOSAS</strong> que vão te ajudar a conseguir uma renda extra. Confira abaixo algumas coisas que você vai encontrar no <strong>PODEROSO</strong> Curso de <strong>IOGURTE CASEIRO:</strong></p><div class='mailmunch-forms-in-post-middle' style='display: none !important;'></div>								</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-749806ba elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="749806ba" data-element_type="section" data-e-type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;shape_divider_bottom&quot;:&quot;opacity-fan&quot;}">
+					<div class="elementor-shape elementor-shape-bottom" aria-hidden="true" data-negative="false">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 283.5 19.6" preserveAspectRatio="none">
+	<path class="elementor-shape-fill" style="opacity:0.33" d="M0 0L0 18.8 141.8 4.1 283.5 18.8 283.5 0z"/>
+	<path class="elementor-shape-fill" style="opacity:0.33" d="M0 0L0 12.6 141.8 4 283.5 12.6 283.5 0z"/>
+	<path class="elementor-shape-fill" style="opacity:0.33" d="M0 0L0 6.4 141.8 4 283.5 6.4 283.5 0z"/>
+	<path class="elementor-shape-fill" d="M0 0L0 1.2 141.8 4 283.5 1.2 283.5 0z"/>
+</svg>		</div>
+					<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-3108ed67" data-id="3108ed67" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-5211c953 elementor-widget elementor-widget-image" data-id="5211c953" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" src="https://crescernodigital.com.br/wp-content/uploads/2023/02/IMG-YGT-02.webp" title="IMG-YGT-02.webp" alt="IMG-YGT-02.webp" class="elementor-animation-grow" loading="lazy" />															</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-57bc04d6" data-id="57bc04d6" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-b093f16 elementor-widget elementor-widget-heading" data-id="b093f16" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h1 class="elementor-heading-title elementor-size-medium">MAIS DE 20 RECEITAS </h1>				</div>
+				</div>
+				<div class="elementor-element elementor-element-2f7be2db elementor-widget elementor-widget-text-editor" data-id="2f7be2db" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p style="text-align: left;">O Curso junto com os bônus que você vai conhecer abaixo somam mais de 50 receitas. </p>								</div>
+				</div>
+				<div class="elementor-element elementor-element-4dda2953 elementor-widget elementor-widget-heading" data-id="4dda2953" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h1 class="elementor-heading-title elementor-size-medium">MARGEM DE LUCRO</h1>				</div>
+				</div>
+				<div class="elementor-element elementor-element-66695719 elementor-widget elementor-widget-text-editor" data-id="66695719" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p style="text-align: left;">Mostrei a margem de lucro que cada receita pode ter, dependendo dos ingredientes</p>								</div>
+				</div>
+				<div class="elementor-element elementor-element-746d531e elementor-widget elementor-widget-heading" data-id="746d531e" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h1 class="elementor-heading-title elementor-size-medium">
+A SUA LOGOMARCA </h1>				</div>
+				</div>
+				<div class="elementor-element elementor-element-69c8be55 elementor-widget elementor-widget-text-editor" data-id="69c8be55" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p style="text-align: left;">falo sobre a sua logo marca e onde você mesmo pode fazer, ou contratar um design.</p>								</div>
+				</div>
+				<div class="elementor-element elementor-element-24c5ff88 elementor-widget elementor-widget-heading" data-id="24c5ff88" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h1 class="elementor-heading-title elementor-size-medium">RENDIMENTO</h1>				</div>
+				</div>
+				<div class="elementor-element elementor-element-13a1e97e elementor-widget elementor-widget-text-editor" data-id="13a1e97e" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p style="text-align: left;">Na curso especifiquei o rendimento de cada receita separadamente para facilitar o trabalho.</p>								</div>
+				</div>
+				<div class="elementor-element elementor-element-209741d7 elementor-widget elementor-widget-heading" data-id="209741d7" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h1 class="elementor-heading-title elementor-size-medium">PREÇOS SUGERIDOS</h1>				</div>
+				</div>
+				<div class="elementor-element elementor-element-560ee89d elementor-widget elementor-widget-text-editor" data-id="560ee89d" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p style="text-align: left;">Todas as receitas tem uma média de preço sugerido, levando em conta o custo.</p>								</div>
+				</div>
+				<div class="elementor-element elementor-element-4ba005f4 elementor-align-center elementor-widget elementor-widget-button" data-id="4ba005f4" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_animation&quot;:&quot;none&quot;}" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-button-wrapper">
+					<a class="elementor-button elementor-button-link elementor-size-lg elementor-animation-grow" href="https://checkout.escalepay.com/1087099">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">QUERO LUCRAR COM IORGUTE CASEIRO</span>
+					</span>
+					</a>
+				</div>
+								</div>
+				</div>
+				<div class="elementor-element elementor-element-c4bc661 elementor-widget elementor-widget-image" data-id="c4bc661" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img loading="lazy" decoding="async" width="518" height="51" src="https://crescernodigital.com.br/wp-content/uploads/2023/02/modo-de-pagamento-1-1-1-1.png" class="attachment-large size-large wp-image-7860" alt="" srcset="https://crescernodigital.com.br/wp-content/uploads/2023/02/modo-de-pagamento-1-1-1-1.png 518w, https://crescernodigital.com.br/wp-content/uploads/2023/02/modo-de-pagamento-1-1-1-1-300x30.png 300w" sizes="(max-width: 518px) 100vw, 518px" />															</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-703e469a elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="703e469a" data-element_type="section" data-e-type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-49ef15d0" data-id="49ef15d0" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-2aec3895 elementor-widget elementor-widget-image" data-id="2aec3895" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img loading="lazy" decoding="async" width="800" height="296" src="https://crescernodigital.com.br/wp-content/uploads/2023/02/IMG-YGT-03-1024x379-1.png" class="attachment-large size-large wp-image-7874" alt="" srcset="https://crescernodigital.com.br/wp-content/uploads/2023/02/IMG-YGT-03-1024x379-1.png 1024w, https://crescernodigital.com.br/wp-content/uploads/2023/02/IMG-YGT-03-1024x379-1-300x111.png 300w, https://crescernodigital.com.br/wp-content/uploads/2023/02/IMG-YGT-03-1024x379-1-768x284.png 768w" sizes="(max-width: 800px) 100vw, 800px" />															</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-33fc5ba0 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="33fc5ba0" data-element_type="section" data-e-type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+							<div class="elementor-background-overlay"></div>
+							<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-62626196" data-id="62626196" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<section class="elementor-section elementor-inner-section elementor-element elementor-element-44fc1859 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="44fc1859" data-element_type="section" data-e-type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-59edd55f" data-id="59edd55f" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-ae0677d elementor-widget elementor-widget-image" data-id="ae0677d" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" src="https://crescernodigital.com.br/wp-content/uploads/2023/02/TITULO-IOGURTE-1.png" title="TITULO-IOGURTE-1.png" alt="TITULO-IOGURTE-1.png" loading="lazy" />															</div>
+				</div>
+				<div class="elementor-element elementor-element-c571744 elementor-widget elementor-widget-text-editor" data-id="c571744" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p><strong>PIRATARIA É CRIME</strong><br />A venda do Curso só pode ser realizada através deste site, registrado em nome de NOME DA EMPRESA. Qualquer outro site onde você encontre este programa é uma FALSIFICAÇÃO e vai contra as leis. Evite falsificações e recuse conteúdos ilegais ou pirateados. NÃO adquira programas parecidos e que não possuam a qualidade de ensino que vai ajudar na sua jornada para o sucesso no marketing digital com vendas de e-books. Não nos responsabilizamos por compras realizadas em outros sites.</p><p>Copyright 2022 – Crescer no Digital ®</p>								</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-a271a11 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="a271a11" data-element_type="section" data-e-type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-abdf6b1" data-id="abdf6b1" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-69cc56c elementor-widget elementor-widget-html" data-id="69cc56c" data-element_type="widget" data-e-type="widget" data-widget_type="html.default">
+				<div class="elementor-widget-container">
+					<!-- Meta Pixel Code -->
+<script type="rocketlazyloadscript">
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '818384020911022');
+  fbq('track', 'PageView');
+</script>
+<noscript><img loading="lazy" decoding="async" height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=818384020911022&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->				</div>
+				</div>
+				<div class="elementor-element elementor-element-e99141e elementor-fixed elementor-widget elementor-widget-html" data-id="e99141e" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_position&quot;:&quot;fixed&quot;}" data-widget_type="html.default">
+				<div class="elementor-widget-container">
+					<!-- PLUGINS PARA NOTIFICAÇÃO DE ESCASSEZ -->
+<a href="https://checkout.escalepay.com/1087099"><img name="misto" id="prova-social"
+src="https://randersonaraujo.com/escassez/n1.png" class="img-responsive" style="display: ;">
+</a>
+<script type="rocketlazyloadscript" data-minify="1" src="https://crescernodigital.com.br/wp-content/cache/min/1/ajax/libs/jquery/3.5.0/jquery.min.js?ver=1777571902"
+crossorigin="anonymous" defer></script>
+<link rel='stylesheet' href='https://randersonaraujo.com/escassez/notificacao.css'
+type='text/css' media='all' />
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript">window.addEventListener('DOMContentLoaded', function() {
+$('#prova-social').hide();
+var $doc = $('html, body');
+$('.deslisar').click(function() {
+$doc.animate({
+scrollTop: $( $.attr(this, 'href') ).offset().top
+}, 2000);
+return false;
+});
+var nrImagem = 0;
+var imagens = [];
+var refrescar = 20; // mudar imagem de 1 em 1 segundo
+// colocar aqui todas as imagens, seguindo a ordem numérica
+imagens[0] = "https://cursodeaph.com/online/imagens/n1.png";
+imagens[1] = "https://cursodeaph.com/online/imagens/n2.png";
+imagens[2] = "https://cursodeaph.com/online/imagens/n3.png";
+imagens[3] = "https://cursodeaph.com/online/imagens/n4.png";
+imagens[4] = "https://cursodeaph.com/online/imagens/n5.png";
+imagens[5] = "https://cursodeaph.com/online/imagens/n6.png";
+imagens[6] = "https://cursodeaph.com/online/imagens/n7.png";
+imagens[7] = "https://cursodeaph.com/online/imagens/n8.png";
+imagens[8] = "https://cursodeaph.com/online/imagens/n9.png";
+imagens[9] = "https://cursodeaph.com/online/imagens/n10.png";
+imagens[10] = "https://cursodeaph.com/online/imagens/n11.png";
+imagens[11] = "https://cursodeaph.com/online/imagens/n12.png";
+imagens[12] = "https://cursodeaph.com/online/imagens/n13.png";
+imagens[13] = "https://cursodeaph.com/online/imagens/n14.png";
+imagens[14] = "https://cursodeaph.com/online/imagens/n15.png";
+//...
+function rodarImagens() {
+setTimeout(function(){ $('#prova-social').fadeIn(1000); }, 3000);
+setTimeout(function(){ $('#prova-social').fadeOut(1000); }, 10000);
+document.images["misto"].src = imagens[nrImagem++];
+if (nrImagem >= imagens.length)
+nrImagem = 0;
+setTimeout("rodarImagens()", refrescar * 1000);
+}
+rodarImagens();
+});</script>
+<!-- FIM DOS PLUGINS PARA NOTIFICAÇÃO DE ESCASSEZ -->				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				</div>
+		</p><div class='mailmunch-forms-after-post' style='display: none !important;'></div><script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/hello-elementor/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<span aria-hidden="true" id="to_top_scrollup" class="dashicons dashicons-arrow-up-alt2" style=""><span class="screen-reader-text">Scroll Up</span></span>			<script type="rocketlazyloadscript">
+				const lazyloadRunObserver = () => {
+					const lazyloadBackgrounds = document.querySelectorAll( `.e-con.e-parent:not(.e-lazyloaded)` );
+					const lazyloadBackgroundObserver = new IntersectionObserver( ( entries ) => {
+						entries.forEach( ( entry ) => {
+							if ( entry.isIntersecting ) {
+								let lazyloadBackground = entry.target;
+								if( lazyloadBackground ) {
+									lazyloadBackground.classList.add( 'e-lazyloaded' );
+								}
+								lazyloadBackgroundObserver.unobserve( entry.target );
+							}
+						});
+					}, { rootMargin: '200px 0px 200px 0px' } );
+					lazyloadBackgrounds.forEach( ( lazyloadBackground ) => {
+						lazyloadBackgroundObserver.observe( lazyloadBackground );
+					} );
+				};
+				const events = [
+					'DOMContentLoaded',
+					'elementor/lazyload/observe',
+				];
+				events.forEach( ( event ) => {
+					document.addEventListener( event, lazyloadRunObserver );
+				} );
+			</script>
+			<noscript><img height="1" width="1" style="display: none;" src="https://www.facebook.com/tr?id=732139854708665&ev=PageView&noscript=1&eid=732139854708665&cd%5Bpage_title%5D=Iogurte&cd%5Bpost_type%5D=page&cd%5Bpost_id%5D=7853&cd%5Bplugin%5D=PixelYourSite&cd%5Bevent_url%5D=crescernodigital.com.br%2Fiogurte%2F&cd%5Buser_role%5D=guest" alt=""></noscript>
+<link rel='stylesheet' id='jeg-dynamic-style-css' href='https://crescernodigital.com.br/wp-content/plugins/jeg-elementor-kit/lib/jeg-framework/assets/css/jeg-dynamic-styles.css?ver=1.3.0' media='all' />
+<script type="rocketlazyloadscript" id="cookie-notice-front-js-before">
+var cnArgs = {"ajaxUrl":"https:\/\/crescernodigital.com.br\/wp-admin\/admin-ajax.php","nonce":"84e3d03a28","hideEffect":"fade","position":"bottom","onScroll":true,"onScrollOffset":100,"onClick":true,"cookieName":"cookie_notice_accepted","cookieTime":2592000,"cookieTimeRejected":2592000,"globalCookie":false,"redirection":false,"cache":true,"revokeCookies":false,"revokeCookiesOpt":"automatic"};
+
+//# sourceURL=cookie-notice-front-js-before
+</script>
+<script type="rocketlazyloadscript" src="https://crescernodigital.com.br/wp-content/plugins/cookie-notice/js/front.min.js?ver=3.0.2" id="cookie-notice-front-js" defer></script>
+<script type="rocketlazyloadscript" src="https://crescernodigital.com.br/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=4.0.5" id="elementor-webpack-runtime-js" defer></script>
+<script type="rocketlazyloadscript" src="https://crescernodigital.com.br/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=4.0.5" id="elementor-frontend-modules-js" defer></script>
+<script type="rocketlazyloadscript" src="https://crescernodigital.com.br/wp-includes/js/jquery/ui/core.min.js?ver=1.13.3" id="jquery-ui-core-js" defer></script>
+<script type="rocketlazyloadscript" id="elementor-frontend-js-before">
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Compartilhar no Facebook","shareOnTwitter":"Compartilhar no Twitter","pinIt":"Fixar","download":"Baixar","downloadImage":"Baixar imagem","fullscreen":"Tela cheia","zoom":"Zoom","share":"Compartilhar","playVideo":"Reproduzir v\u00eddeo","previous":"Anterior","next":"Pr\u00f3ximo","close":"Fechar","a11yCarouselPrevSlideMessage":"Slide anterior","a11yCarouselNextSlideMessage":"Pr\u00f3ximo slide","a11yCarouselFirstSlideMessage":"Este \u00e9 o primeiro slide","a11yCarouselLastSlideMessage":"Este \u00e9 o \u00faltimo slide","a11yCarouselPaginationBulletMessage":"Ir para o slide"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"Dispositivos m\u00f3veis no modo retrato","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Dispositivos m\u00f3veis no modo paisagem","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet no modo retrato","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet no modo paisagem","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Notebook","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"Tela ampla (widescreen)","value":2400,"default_value":2400,"direction":"min","is_enabled":false}},"hasCustomBreakpoints":false},"version":"4.0.5","is_static":false,"experimentalFeatures":{"additional_custom_breakpoints":true,"theme_builder_v2":true,"hello-theme-header-footer":true,"global_classes_should_enforce_capabilities":true,"e_variables":true,"e_opt_in_v4_page":true,"e_components":true,"e_interactions":true,"e_widget_creation":true,"import-export-customization":true,"e_pro_atomic_form":true,"e_pro_variables":true,"e_pro_interactions":true},"urls":{"assets":"https:\/\/crescernodigital.com.br\/wp-content\/plugins\/elementor\/assets\/","ajaxurl":"https:\/\/crescernodigital.com.br\/wp-admin\/admin-ajax.php","uploadUrl":"https:\/\/crescernodigital.com.br\/wp-content\/uploads"},"nonces":{"floatingButtonsClickTracking":"d07bd81808","atomicFormsSendForm":"279d0faa20"},"swiperClass":"swiper","settings":{"page":[],"editorPreferences":[]},"kit":{"active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description","hello_header_logo_type":"logo","hello_header_menu_layout":"horizontal","hello_footer_logo_type":"logo"},"post":{"id":7853,"title":"Iogurte%20-%20Crescer%20no%20Digital","excerpt":"","featuredImage":false}};
+//# sourceURL=elementor-frontend-js-before
+</script>
+<script type="rocketlazyloadscript" src="https://crescernodigital.com.br/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=4.0.5" id="elementor-frontend-js" defer></script>
+<script type="rocketlazyloadscript" id="elementor-frontend-js-after">
+var jkit_ajax_url = "https://crescernodigital.com.br/?jkit-ajax-request=jkit_elements", jkit_nonce = "ed421b985f";
+//# sourceURL=elementor-frontend-js-after
+</script>
+<script type="rocketlazyloadscript" src="https://crescernodigital.com.br/wp-content/themes/hello-elementor/assets/js/hello-frontend.min.js?ver=3.1.1" id="hello-theme-frontend-js" defer></script>
+<script type="rocketlazyloadscript" data-minify="1" src="https://crescernodigital.com.br/wp-content/cache/min/1/wp-content/plugins/jeg-elementor-kit/assets/js/elements/sticky-element.js?ver=1777562536" id="jkit-sticky-element-js" defer></script>
+<script type="rocketlazyloadscript" src="https://crescernodigital.com.br/wp-content/plugins/elementor-pro/assets/js/webpack-pro.runtime.min.js?ver=4.0.4" id="elementor-pro-webpack-runtime-js" defer></script>
+<script type="rocketlazyloadscript" src="https://crescernodigital.com.br/wp-includes/js/dist/hooks.min.js?ver=dd5603f07f9220ed27f1" id="wp-hooks-js"></script>
+<script type="rocketlazyloadscript" src="https://crescernodigital.com.br/wp-includes/js/dist/i18n.min.js?ver=c26c3dc7bed366793375" id="wp-i18n-js"></script>
+<script type="rocketlazyloadscript" id="wp-i18n-js-after">
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+//# sourceURL=wp-i18n-js-after
+</script>
+<script type="rocketlazyloadscript" id="elementor-pro-frontend-js-before">
+var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/crescernodigital.com.br\/wp-admin\/admin-ajax.php","nonce":"e7352491a6","urls":{"assets":"https:\/\/crescernodigital.com.br\/wp-content\/plugins\/elementor-pro\/assets\/","rest":"https:\/\/crescernodigital.com.br\/wp-json\/"},"settings":{"lazy_load_background_images":true},"popup":{"hasPopUps":false},"shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"mix":{"title":"Mix"},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"},"x-twitter":{"title":"X"},"threads":{"title":"Threads"}},"facebook_sdk":{"lang":"pt_BR","app_id":""},"lottie":{"defaultAnimationUrl":"https:\/\/crescernodigital.com.br\/wp-content\/plugins\/elementor-pro\/modules\/lottie\/assets\/animations\/default.json"}};
+//# sourceURL=elementor-pro-frontend-js-before
+</script>
+<script type="rocketlazyloadscript" src="https://crescernodigital.com.br/wp-content/plugins/elementor-pro/assets/js/frontend.min.js?ver=4.0.4" id="elementor-pro-frontend-js" defer></script>
+<script type="rocketlazyloadscript" src="https://crescernodigital.com.br/wp-content/plugins/elementor-pro/assets/js/elements-handlers.min.js?ver=4.0.4" id="pro-elements-handlers-js" defer></script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"https://crescernodigital.com.br/wp-includes/js/wp-emoji-release.min.js?ver=6.9.4"}}
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="module">
+/*! This file is auto-generated */
+const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(window._wpemojiSettings=a,"wpEmojiSettingsSupports"),s=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const a=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===a[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,a){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!a(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,a){let r;const o=(r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),s=(o.textBaseline="top",o.font="600 32px Arial",{});return e.forEach(e=>{s[e]=t(o,e,n,a)}),s}function r(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}a.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),c.toString(),p.toString()].join(",")+"));",a=new Blob([e],{type:"text/javascript"});const r=new Worker(URL.createObjectURL(a),{name:"wpTestEmojiSupports"});return void(r.onmessage=e=>{i(n=e.data),r.terminate(),t(n)})}catch(e){}i(n=f(s,u,c,p))}t(n)}).then(e=>{for(const n in e)a.supports[n]=e[n],a.supports.everything=a.supports.everything&&a.supports[n],"flag"!==n&&(a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&a.supports[n]);var t;a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&!a.supports.flag,a.supports.everything||((t=a.source||{}).concatemoji?r(t.concatemoji):t.wpemoji&&t.twemoji&&(r(t.twemoji),r(t.wpemoji)))});
+//# sourceURL=https://crescernodigital.com.br/wp-includes/js/wp-emoji-loader.min.js
+</script>
+
+		<!-- Compliance by Hu-manity.co plugin v3.0.2 https://hu-manity.co/ -->
+		<div id="cookie-notice" role="dialog" class="cookie-notice-hidden cookie-revoke-hidden cn-position-bottom" aria-label="Compliance by Hu-manity.co" style="background-color: rgba(50,50,58,1);"><div class="cookie-notice-container" style="color: #fff"><span id="cn-notice-text" class="cn-text-container">Usamos cookies para garantir que oferecemos a melhor experiência em nosso site. Se continuar a usar este site, assumiremos que está satisfeito com ele.</span><span id="cn-notice-buttons" class="cn-buttons-container"><button id="cn-accept-cookie" data-cookie-set="accept" class="cn-set-cookie cn-button" aria-label="ACEITAR" style="background-color: #00a99d">ACEITAR</button></span><button type="button" id="cn-close-notice" data-cookie-set="accept" class="cn-close-icon" aria-label="No"></button></div>
+			
+		</div>
+		<!-- / Compliance by Hu-manity.co plugin -->	<script>class RocketElementorAnimation{constructor(){this.deviceMode=document.createElement("span"),this.deviceMode.id="elementor-device-mode",this.deviceMode.setAttribute("class","elementor-screen-only"),document.body.appendChild(this.deviceMode)}_detectAnimations(){let t=getComputedStyle(this.deviceMode,":after").content.replace(/"/g,"");this.animationSettingKeys=this._listAnimationSettingsKeys(t),document.querySelectorAll(".elementor-invisible[data-settings]").forEach(t=>{const e=t.getBoundingClientRect();if(e.bottom>=0&&e.top<=window.innerHeight)try{this._animateElement(t)}catch(t){}})}_animateElement(t){const e=JSON.parse(t.dataset.settings),i=e._animation_delay||e.animation_delay||0,n=e[this.animationSettingKeys.find(t=>e[t])];if("none"===n)return void t.classList.remove("elementor-invisible");t.classList.remove(n),this.currentAnimation&&t.classList.remove(this.currentAnimation),this.currentAnimation=n;let s=setTimeout(()=>{t.classList.remove("elementor-invisible"),t.classList.add("animated",n),this._removeAnimationSettings(t,e)},i);window.addEventListener("rocket-startLoading",function(){clearTimeout(s)})}_listAnimationSettingsKeys(t="mobile"){const e=[""];switch(t){case"mobile":e.unshift("_mobile");case"tablet":e.unshift("_tablet");case"desktop":e.unshift("_desktop")}const i=[];return["animation","_animation"].forEach(t=>{e.forEach(e=>{i.push(t+e)})}),i}_removeAnimationSettings(t,e){this._listAnimationSettingsKeys().forEach(t=>delete e[t]),t.dataset.settings=JSON.stringify(e)}static run(){const t=new RocketElementorAnimation;requestAnimationFrame(t._detectAnimations.bind(t))}}document.addEventListener("DOMContentLoaded",RocketElementorAnimation.run);</script></body>
+</html>
+
+<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me -->
